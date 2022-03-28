@@ -1,2 +1,2 @@
-worker: Palindromebot.py
-worker: bot.py
+worker: python palindromebot.py
+worker: python bot.py
