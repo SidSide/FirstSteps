@@ -18,7 +18,7 @@ def check_pali(message):
             answer = "Строка не является палиндромом"
         elif counts[letter] % 2 == 1:
             middle = letter
-        else:
+#        else:
             new_pali = ""
             if middle:
                 new_pali = middle * counts[middle]
