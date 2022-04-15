@@ -18,16 +18,25 @@ def check_pali(message):
             answer = "Строка не является палиндромом"
         elif counts[letter] % 2 == 1:
             middle = letter
-#        else:
             new_pali = ""
             if middle:
                 new_pali = middle * counts[middle]
             for letter in counts:
-                if letter != middle:
-                    new_pali = letter * int(counts[letter] / 2) + new_pali + letter * int(counts[letter] / 2)
-                    answer  = "Строка является палиндромом.\n"
-                    answer  += "Вот его возможный вариант:\n"
-                    answer  += new_pali
+                 if letter != middle:
+                     new_pali = letter * int(counts[letter] / 2) + new_pali + letter * int(counts[letter] / 2)
+                     answer = "Строка является палиндромом.\n"
+                     answer  += "Вот его возможный вариант:\n"
+                     answer  += new_pali
+        elif counts[letter] % 2 == 0:
+            new_pali = ""
+            if middle:
+                new_pali = middle * counts[middle]
+            for letter in counts:
+                 if letter != middle:
+                     new_pali = letter * int(counts[letter] / 2) + new_pali + letter * int(counts[letter] / 2)
+                     answer = "Строка является палиндромом.\n"
+                     answer  += "Вот его возможный вариант:\n"
+                     answer  += new_pali
 #     return True
 #    our_string = message.text
     bot.send_message(message.chat.id, answer)
