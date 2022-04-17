@@ -34,10 +34,17 @@ def check_pali(message):
                 for letter in counts:
                     if letter != middle:
                         new_pali = letter * int(counts[letter] / 2) + new_pali + letter * int(counts[letter] / 2)
-                        answer = "Строка не является палиндромом.\n"
-                        answer += "Однако из неё возможно составить палиндром.\n"
-                        answer += "Вот его возможный вариант:\n"
-                        answer += new_pali
+                        if len(new_pali) != len(s):
+                            answer = "Строка не является палиндромом.\n"
+                            answer += "Из неё невозможно составить палиндром.\n"
+                            answer += "% 2 == 1" + str(len(new_pali)) + " " + str(len(s)) + "\n"
+
+                        else:
+                            answer = "Строка не является палиндромом.\n"
+                            answer += "Однако из неё возможно составить палиндром.\n"
+                            answer += "Вот его возможный вариант:\n"
+                            answer += "% 2 == 1" + str(len(new_pali)) + " " + str(len(s)) + "\n"
+                            answer += new_pali
             elif counts[letter] % 2 == 0:
                 new_pali = ""
                 if middle:
@@ -45,10 +52,17 @@ def check_pali(message):
                 for letter in counts:
                     if letter != middle:
                         new_pali = letter * int(counts[letter] / 2) + new_pali + letter * int(counts[letter] / 2)
-                        answer = "Строка не является палиндромом.\n"
-                        answer += "Однако из неё возможно составить палиндром.\n"
-                        answer += "Вот его возможный вариант:\n"
-                        answer += new_pali
+                        if len(new_pali) != len(s):
+                            answer = "Строка не является палиндромом.\n"
+                            answer += "Из неё невозможно составить палиндром.\n"
+                            answer += "% 2 == 0" + str(len(new_pali)) + " " + str(len(s)) + "\n"
+                        else:
+                            answer = "Строка не является палиндромом.\n"
+                            answer += "Однако из неё возможно составить палиндром.\n"
+                            answer += "Вот его возможный вариант:\n"
+                            answer += "% 2 == 0" + str(len(new_pali)) + " " + str(len(s)) + "\n"
+                            answer += new_pali
+
         # return True
     # our_string = message.text
     bot.send_message(message.chat.id, answer)
